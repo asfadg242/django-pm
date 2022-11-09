@@ -25,10 +25,12 @@ class Project(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     user = models.ForeignKey(
         AUTH_USER_MODEL,
-        on_delete= models.CASCADE
+        on_delete= models.CASCADE,
+        null = True
     )
     def __str__(self):
         return self.title
+        
 class Task(models.Model):
     description = models.TextField()
     is_completed= models.BooleanField(default = False)
